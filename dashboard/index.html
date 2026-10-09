@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smart Water Network</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="eyebrow">QNX · RASPBERRY PI · ESP32</div>
+    <h1>SMART WATER NETWORK</h1>
+    <p>Live Leak Detection &amp; Isolation Dashboard</p>
+    <div class="connection-pill"><span id="connectionDot" class="dot"></span><span id="connectionStatus">Connecting...</span></div>
+  </header>
+  <main class="container">
+    <section class="node-grid">
+      <article class="card node-card">
+        <div class="card-heading"><h2>Node 1</h2><span id="node1Status" class="node-badge">DISCONNECTED</span></div>
+        <div class="metrics">
+          <div class="metric"><span>Flow Rate</span><strong id="node1Flow">0.00 <small>mL/s</small></strong></div>
+          <div class="metric"><span>Pressure</span><strong id="node1Pressure">0.00 <small>bar</small></strong></div>
+        </div>
+      </article>
+      <article class="card node-card">
+        <div class="card-heading"><h2>Node 2</h2><span id="node2Status" class="node-badge">DISCONNECTED</span></div>
+        <div class="metrics">
+          <div class="metric"><span>Flow Rate</span><strong id="node2Flow">0.00 <small>mL/s</small></strong></div>
+          <div class="metric"><span>Pressure</span><strong id="node2Pressure">0.00 <small>bar</small></strong></div>
+        </div>
+      </article>
+    </section>
+    <section class="stats-grid">
+      <article class="card stat-card"><span class="stat-label">Flow Difference</span><strong id="flowDifference">0.00 <small>mL/s</small></strong></article>
+      <article class="card stat-card"><span class="stat-label">Pressure Difference</span><strong id="pressureDifference">0.00 <small>bar</small></strong></article>
+      <article class="card stat-card"><span class="stat-label">Leak Identification</span><strong id="leakStatus" class="state neutral">WAITING FOR DATA</strong><p id="leakDetails">Waiting for node readings.</p></article>
+      <article class="card stat-card"><span class="stat-label">Valve Status</span><strong id="valveStatus" class="state neutral"></strong><p id="valveDetails"></p></article>
+    </section>
+    <section class="card isolation-card">
+      <div id="isolationIcon" class="isolation-icon">i</div>
+      <div class="isolation-content">
+        <span class="stat-label">Isolation Recommendation</span>
+        <h2 id="isolationTitle">Waiting for data</h2>
+        <p id="recommendation">Waiting for QNX application data.</p>
+      </div>
+    </section>
+    <footer>
+      <span id="lastUpdate">Last update: --</span>
+      <span>Virtual pressure is estimated for demonstration only, if physical pressure readings are not supplied.</span>
+    </footer>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
